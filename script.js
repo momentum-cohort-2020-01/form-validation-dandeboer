@@ -1,36 +1,27 @@
-console.log("Add validation!");
-//let appendTest= document.getElementById("")
+const form = document.querySelector("#parking-form");
 
-let nameField = document.getElementById("name-field");
-
-let form = document.querySelector("#parking-form");
-
-//let isRequired = document.createElement("Div");
-//let text = document.createTextNode("Is Required");
-//isRequired.innerText=("Required");
+let required;
 
 form.addEventListener("submit", function(e) {
   e.preventDefault();
-  let inputs = document.querySelectorAll(".inputClass");
-  for (let inputLoop of inputs) {
-    //console.log(inputLoop.parentElement.)
-    //if (inputLoop.parentElement.contains(document.querySelectorAll(".invalid.color")) = false) {
+  required = document.querySelectorAll(".invalid-color");
+  for (let element of required) {
+    console.log(required);
+    element.remove();
+  }
+  const inputs = document.querySelectorAll(".inputClass");
+  for (const inputLoop of inputs) {
     if (inputLoop.value === "") {
-      let isRequired = document.createElement("Div");
-      isRequired.innerText = "Required";
+      const isRequired = document.createElement("div");
+      isRequired.innerText = "*Required";
       inputLoop.parentElement.classList.add("input-invalid");
       inputLoop.parentElement.classList.remove("input-valid");
       console.log(isRequired);
       inputLoop.parentElement.appendChild(isRequired);
       isRequired.classList.add("invalid-color");
-      //let isRequiredClone = isRequired.cloneNode()
     } else {
       inputLoop.parentElement.classList.add("input-valid");
       inputLoop.parentElement.classList.remove("input-invalid");
     }
   }
 });
-
-//add a class to every imput to identify it and put those in an array and a loop
-//if input.value === ""
-//.contains
